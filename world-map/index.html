@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D World Map</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="globe-stage" aria-label="Interactive 3D rotating world map">
+        <canvas id="globe"></canvas>
+        <div class="map-labels" id="mapLabels" aria-hidden="true"></div>
+
+        <div class="top-bar">
+          <div class="brand">
+            <span class="dot"></span>
+            <div>
+              <h1>3D World Map</h1>
+              <p id="status">Loading countries...</p>
+            </div>
+          </div>
+
+          <div class="controls">
+            <label class="search-box">
+              <span>Country</span>
+              <input id="countrySearch" list="countryList" placeholder="Search a country" autocomplete="off" />
+              <datalist id="countryList"></datalist>
+            </label>
+            <button id="resetView" type="button" title="Reset view">Reset</button>
+          </div>
+        </div>
+
+        <div class="country-card" id="countryCard">
+          <span class="eyebrow">Selected</span>
+          <strong id="countryName">Earth</strong>
+          <span id="countryHint">Drag to rotate. Scroll or pinch to zoom.</span>
+        </div>
+
+        <div class="zoom-strip" aria-label="Zoom controls">
+          <button id="zoomIn" type="button" title="Zoom in">+</button>
+          <button id="zoomOut" type="button" title="Zoom out">-</button>
+        </div>
+
+        <div class="studio-signature">Kapil Dev Studio</div>
+      </section>
+    </main>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.164.1/build/three.module.js"
+        }
+      }
+    </script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
